@@ -1,4 +1,7 @@
 # ProNotif
+Bot Discord qui notifie de :
+- Nouveaux messages
+- Nouveaux devoirs, tout les jours à 18 heures du lundi au vendredi
 
 # PREVENTION | ONLY IN FRENCH 
 
