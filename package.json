@@ -1,0 +1,39 @@
+{
+  "name": "pronotif",
+  "version": "1.0.0",
+  "description": "",
+  "main": "out/index.js",
+  "scripts": {
+    "dev": "rm -rf out/ && nodemon --config nodemon.json src/index.ts",
+    "build": "ts-node --esm",
+    "clear": "rm -rf out/",
+    "start": "rm -rf out/ && tsc && clear && node .",
+    "start:clean": "rm -rf out && tsup && node .",
+    "docker:push": "docker build --pull --rm -f \"Dockerfile\" -t ghcr.io/piarre/pronotif:latest \".\" && docker push ghcr.io/piarre/pronotif:latest",
+    "api:pull": "docker pull justtryon/papillonserver:latest",
+    "api:run": "docker run -d -p 8000:8000 -e CRON=\"*/25 * * * * \" justtryon/papillonserver:latest",
+    "lint": "eslint . --ext .ts"
+  },
+  "keywords": [],
+  "author": "Piarre",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/node": "^20.11.5",
+    "@typescript-eslint/eslint-plugin": "^6.20.0",
+    "@typescript-eslint/parser": "^6.20.0",
+    "eslint": "^8.56.0",
+    "nodemon": "^3.0.3",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "cron": "^3.1.6",
+    "dayjs": "^1.11.10",
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.3.2",
+    "glob": "^7.2.3",
+    "node-cron": "^3.0.3"
+  }
+}

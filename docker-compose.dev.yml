@@ -1,0 +1,26 @@
+version: "3.8"
+
+name: pronotif-infra
+
+services:
+  pronote:
+    image: justtryon/papillonserver:latest
+    container_name: pronote-api
+    environment:
+      - CRON="0 * * * *"
+    ports:
+      - 8000:8000
+  bot:
+    image: ghcr.io/piarre/pronotif:latest
+    container_name: pronotif-bot
+    restart: always
+    environment:
+      - PRONOTE_API_URL= # http://[YOUR SERVER IP OR CONTAINER ID]:8000
+      - PRONOTE_USERNAME= # [USERNAME PRONOTE]
+      - PRONOTE_PASSWORD= # [PASSWORD PRONOTE]
+      - PRONOTE_URL= # [URL PRONOTE EX: https://demo.index-education.net/pronote/eleve.html]
+      - TOKEN= # [BOT TOKEN]
+      - CHANNEL_WEBHOOK_URL_HOMEWORKS= # [WEBHOOK URL]
+      - CHANNEL_WEBHOOK_URL_NEWS= # [WEBHOOK URL]
+      - CHANNEL_WEBHOOK_URL_TIMETABLE= # [WEBHOOK URL]
+      - PRONOTE_SCHOOL_THUMBNAIL_URL= # [URL TO SCHOOL THUMBNAIL FOR EMBEDS]

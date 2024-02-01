@@ -1,0 +1,10 @@
+import { ApplicationCommandDataResolvable } from 'discord.js';
+
+export interface RegisterCommandsOptions {
+    guildId?: string;
+    commands: ApplicationCommandDataResolvable[];
+}
+
+export interface UnRegisterCommandsOptions {
+    guildId?: string;
+}
