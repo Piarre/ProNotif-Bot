@@ -7,6 +7,7 @@ import { Class } from "../typings/Pronote/Timetable";
 
 const filterHomeworks = (homeworks: Homework[]): FilteredHomework[] => {
   const res = [];
+
   homeworks
     .reduce((result, todo) => {
       const existingDateItem = result.find((item) => item.date === todo.date);
@@ -33,13 +34,13 @@ const filterHomeworks = (homeworks: Homework[]): FilteredHomework[] => {
       return result;
     }, [])
     .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
-    .forEach((hw) => hw.date > dayjs().format("YYYY-MM-DD HH:mm") ?? res.push(hw));
+    .forEach((hw) => hw.date > dayjs().format("YYYY-MM-DD HH:mm") && res.push(hw));
 
   return res;
 };
 
 const formatHomeworks = (homeworks: FilteredHomework[]): string => {
-  return homeworks.length < 0
+  return homeworks.length !== 0
     ? homeworks
         .map(
           (hw) =>
