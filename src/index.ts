@@ -34,7 +34,7 @@ process.on("uncaughtException", (err) => {
 
 client.start();
 
-new CronJob("0 17 * * *", async () => {
+new CronJob("0 17 * * 1-5", async () => {
   await proLib.getToken();
   const homework: FilteredHomework[] = await proLib
     .homeworks()
