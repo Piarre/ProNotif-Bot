@@ -32,8 +32,8 @@ Bot Discord qui notifie de :
 - `CHANNEL_WEBHOOK_URL_TIMETABLE` **`[BETA]`** L'URL de WebHook Discord pour recevoir les voir les changements dans l'emploie du temp.
 - `PRONOTE_SCHOOL_THUMBNAIL_URL` L'URL de l'image en haut à droite sur Pronote, elle sera sur chaque embed.
 
-> [!NOTE] 
+> [!TIP] 
 > ## Comment sa marche
-> Alors, pour récupérer devoirs, messages, et emploie de temps je passe par le serveur, [justtryon/papillonserver](https://github.com/PapillonApp/papillon-python), c'est fait > par la team [@PapillonApp](https://github.com/PapillonApp), et les calls API se passent comme ça:
+> Alors, pour récupérer devoirs, messages, et emploie de temps je passe par le serveur, [justtryon/papillonserver](https://github.com/PapillonApp/papillon-python), c'est fait par la team [@PapillonApp](https://github.com/PapillonApp), et les calls API se passent comme ça:
 > - Au démarage de l'app, je genère un token et je récupère: `messages` dans `$PWD/pronote/news.json`, l'emploie du temps dans `$PWD/pronote/timetable.json`.
-> - Ensuite, toutes les 15 minutes je re génère un token Pronote et je les re écupère, c'est à ce moment là que je compare les différentes données que je récupère [(dans se > fichier)](https://github.com/Piarre/ProNotif-Bot/blob/main/src/utils/pronote.ts), du coup s'il quelque chose à changer j'envoie un message, le message Pronote arrive même > avant que Pronote envoie la notification sur l'App mobile.
+> - Ensuite, toutes les 15 minutes je re génère un token Pronote et je les re écupère, c'est à ce moment là que je compare les différentes données que je récupère [(dans se fichier)](https://github.com/Piarre/ProNotif-Bot/blob/main/src/utils/pronote.ts), du coup s'il quelque chose à changer j'envoie un message, le message Pronote arrive même > avant que Pronote envoie la notification sur l'App mobile.
